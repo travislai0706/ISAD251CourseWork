@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ISAD251.Models
+namespace KungFuTea.Models.Data
 {
-    public class Order
+    [Table("tblOrders")]
+    public class OrderDTO
     {
+        [Key]
         public int OrderId { get; set; }
         public int UserId { get; set; }
-        public decimal Total { get; set; }
-        public DateTime CreateDate { get; set; }
+        public DateTime CreatedAt { get; set; }
 
-        public virtual List<OrderItem> OrderItem { get; set; }
+        [ForeignKey("UserId")]
+        public virtual UserDTO Users { get; set; }
     }
 }
