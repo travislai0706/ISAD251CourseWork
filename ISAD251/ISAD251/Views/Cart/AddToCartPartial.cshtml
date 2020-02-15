@@ -1,0 +1,9 @@
+﻿@model KungFuTea.Models.ViewModels.Cart.CartViewModel
+
+
+    <div class="ajaxcart" style="color:white;">
+        Shopping cart: @Model.Quantity item(s) : $@Model.Price
+        <br />
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+        @Html.ActionLink("Checkout", "Index")
+    </div>
