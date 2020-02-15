@@ -1,0 +1,56 @@
+﻿@model IEnumerable<KungFuTea.Models.ViewModels.Account.OrdersForUserViewModel>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2 >Orders</h2>
+
+@if (! Model.Any())
+{
+    <h3 class="text-center">You have no orders.</h3>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th style="text-align:center">
+                OrderNumber
+            </th>
+            <th >OrderDetails</th>
+            <th>
+               Date
+            </th>
+            <th>
+                Total
+            </th>
+            <th>
+            </th>
+        </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderNumber)
+        </td>
+        <td>
+            @foreach (var item2 in item.ItemsAndQty)
+            {
+                @item2.Key @:x @item2.Value <br />
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.Total)
+        </td>
+        <td>
+            |
+            @Html.ActionLink("Delete", "DeleteOrder", new { id = item.OrderNumber }, new { @class = "delete" })
+        </td>
+    </tr>
+    }
+
+    </table>
+}
