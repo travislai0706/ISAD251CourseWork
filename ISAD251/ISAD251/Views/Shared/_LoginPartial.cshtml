@@ -1,7 +1,0 @@
-﻿@if (Request.IsAuthenticated && User.IsInRole("User"))
-
-{
-    <ul class="navbar-collapse collapse navbar-right">
-        @Html.Action("CartPartial", "Cart")
-    </ul>
-}
