@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Admin Area</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .body {
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            margin: 40px auto;
+            background: rgba(22,22,22, 0.5);
+            width: 85%;
+            max-width: 1200px;
+            border-radius: 5px;
+            padding-bottom: 32px;
+        }
+    </style>
+</head>
+<body background="~/Images/background2.jpg"  style="background-repeat:no-repeat; background-size:100% 100%; background-attachment:fixed;">
+    <div class="navbar navbar-inverse navbar-fixed-topcancel">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/admin/dashboard" class="navbar-brand" style="font-family:'Goudy Stout'; color:blue">Dashboard</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="font-family:'Goudy Stout'">
+                    <li><a href="/admin/shop/Categories">Categories</a></li>
+                    <li><a href="/admin/shop/Items">Items</a></li>
+                    <li><a href="/admin/shop/Orders">Orders</a></li>
+                </ul>
+                <ul class="navbar-right">
+                    <li><a href="/" class="navbar-brand" >KungFuTea</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="body" style="font-family:'Arial Black'">
+        @RenderBody()
+        <hr />
+    </div>
+
+    @Scripts.Render("~/bundles/scripts")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
