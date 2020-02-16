@@ -3,6 +3,7 @@ using KungFuTea.Models.ViewModels.Account;
 using KungFuTea.Models.ViewModels.Shop;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -315,17 +316,13 @@ namespace KungFuTea.Controllers
             return View(ofu);
         }
 
-        public ActionResult DeleteOrder(int id)
+        public ActionResult DeleteOrder(int Id)
         {
             using (Db db = new Db())
             {
-                // Get the OrderDetail
-                OrderDetails ods = db.OrderDetails.Find(id);
+                Order od = db.Orders.Find(Id);
+                db.Orders.Remove(od);
 
-                // Remove the category
-                db.OrderDetails.Remove(ods);
-
-                // Save
                 db.SaveChanges();
             }
 

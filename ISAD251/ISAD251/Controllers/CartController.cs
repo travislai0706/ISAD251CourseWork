@@ -251,6 +251,8 @@ namespace KungFuTea.Controllers
                     db.SaveChanges();
                 }
             }
+            Session["cart"] = null;
         }
     }
+
 }
